@@ -1,6 +1,7 @@
 // requirements/dependencies
 var mysql = require("mysql");
 
+
 // setup the code to connect Node to MySQL
 var connection = mysql.createConnection({
     host: "localhost",
@@ -9,6 +10,7 @@ var connection = mysql.createConnection({
     password: "root",
     database: "burgers_db"
 });
+
 
 // make the connection
 connection.connect(function(err) {
@@ -20,6 +22,7 @@ connection.connect(function(err) {
     // log the connection in the console when the successful connection is made
     console.log("connected as id " + connection.threadId);
 });
+
 
 // Export the connection
 module.exports = connection;

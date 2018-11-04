@@ -1,0 +1,27 @@
+<div class="available">
+    <h3>Hungry? Try one of these tasty burgers.</h3>
+    <ul>
+        {{#each burgers}}
+            <li>{{burger_name WHERE devoured: true}}</li>
+        {{/each}}
+    </ul>
+    <button type="submit" id="submit">Eat-Da-Burger!</button>
+</div>
+
+
+<div class="byoburger">
+    <form class="burger-creator">
+        <label>
+            What type of burger would you like to add to the menu?
+        </label>
+        <input type="text" name="burger-type">
+        <button type="submit" id="add-burger">Add to Menu</button>
+    </form>
+</div>
+
+
+<div class="devoured">
+    <h3>These burgers are currently unavailable, sorry.</h3>
+    <div class="eaten">
+    </div>
+</div>

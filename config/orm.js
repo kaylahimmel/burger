@@ -2,6 +2,7 @@
 var mysql = require('mysql');
 var connection = require("../config/connection.js");
 
+
 // ORM functions
 var orm = {
     // selectAll function
@@ -38,5 +39,6 @@ var orm = {
     },
 };
   
+
 // Export the ORM object
 module.exports = orm;
