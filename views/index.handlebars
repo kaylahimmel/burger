@@ -10,11 +10,11 @@
 
 
 <div class="byoburger">
-    <form class="burger-creator">
+    <form class="burger-creator" method="POST" action="/insertOne">
         <label>
             What type of burger would you like to add to the menu?
         </label>
-        <input type="text" name="burger-type">
+        <input type="text" name="new-burger" placeholder="Ex: Black Bean Burger">
         <button type="submit" id="add-burger">Add to Menu</button>
     </form>
 </div>

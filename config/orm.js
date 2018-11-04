@@ -24,6 +24,7 @@ var orm = {
                 throw err;
             }
             console.log(result)
+            res.redirect("/")
         });
     },
         
