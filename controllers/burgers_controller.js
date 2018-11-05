@@ -1,12 +1,7 @@
 // requirements/dependencies
 var express = require("express");
-var mysql = require("mysql");
-var expressHandlebars = require("express-handlebars");
 
 var burger = require("../models/burger.js");
-
-// not sure if I need this line:
-var port = 3000;
 
 // setup router 
 var router = express.Router();
@@ -17,8 +12,8 @@ router.get("/", function(req, res) {
         var burgerData = {
             burgers: data
         };
-        console.log(burgerData);
-        res.render("index", burgerData);
+        console.log({ burgers: data});
+        res.render("index", {burgers: data});
     });
 });
   

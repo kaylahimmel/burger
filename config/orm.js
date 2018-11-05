@@ -6,13 +6,14 @@ var connection = require("../config/connection.js");
 // ORM functions
 var orm = {
     // selectAll function
-    selectAll: function(columnsToSelect, table) {
-        var queryString = "SELECT ?? FROM ??";
-        connection.query(queryString, [columnsToSelect, table], function(err, result) {
+    selectAll: function(callback) {
+        var queryString = "SELECT * FROM burgers";
+        console.log(queryString)
+        connection.query(queryString, function(err, result) {
             if (err) {
                 throw err;
             }            
-            console.log(result);
+            callback(result);
         });
     },
     
