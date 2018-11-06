@@ -3,20 +3,21 @@
     <ul>
         {{#each burgers}}
         {{#unless devoured}}
-            <li>{{burger_name}}</li>
-            <button type="submit" id="devour-button" data-id={{id}}>Eat-Da-Burger!</button>
+            <button type="submit" class="burger-title" id="devour-button" data-id={{id}}>{{burger_name}}</button>
+            {{!-- <li id="burger-title">{{burger_name}}</li>
+            <button type="submit" id="devour-button" data-id={{id}}>Eat-Da-Burger!</button> --}}
         {{/unless}}
         {{/each}}
     </ul>
 </div>
 
-<div class="available">
-    <h3>Eaten Burgers</h3>
+<div class="eaten">
+    <h3>These burgers are currently unavailable, sorry.</h3>
     <ul>
         {{#each burgers}}
         {{#if devoured}}
-            <li>{{burger_name}}</li>
-            {{/if}}
+            <li id="no-burger-title">{{burger_name}}</li>
+        {{/if}}
         {{/each}}
     </ul>
 </div>
@@ -29,11 +30,4 @@
         <input type="text" name="new-burger" id="new-burger" placeholder="Ex: Black Bean Burger">
         <button type="submit" id="add-burger">Add to Menu</button>
     </form>
-</div>
-
-
-<div class="devoured">
-    <h3>These burgers are currently unavailable, sorry.</h3>
-    <div class="eaten">
-    </div>
 </div>

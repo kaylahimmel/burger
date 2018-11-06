@@ -1,0 +1,37 @@
+body {
+    background-color: #A70E12;
+}
+
+button {
+    background-color: #F7A815;
+    color: #6A0203;
+    font-size: 14px;
+    padding: 10px 15px;
+    margin: 5px 5px;
+}
+
+.body-menu {
+    background-color: white;
+    color: black;
+    padding: 40px 40px;
+    margin: 20px 40px;
+}
+
+.available,
+.eaten,
+.byoburger {
+    color: #6A0203;
+}
+
+.burger-title {
+    color: #6A0203;
+}
+
+#no-burger-title {
+    color: gray;
+}
+
+#add-burger {
+    background-color: #A70E12;
+    color: #F7A815
+}
