@@ -5,10 +5,7 @@ $(function() {
         // prevent page from reloading when button is clicked
         event.preventDefault();
         // add "data-id" attribute to the data tied to the button
-        var burgerId = $(this).attr("data-id")
-        // console logs the browser's stored data for the button that was just clicked
-        // console.localStorage(burgerId)
-        console.log(burgerId)        
+        var burgerId = $(this).attr("data-id")    
         // variable that assigns the value "true" to the devoured state when called in ajax call
         var devouredBurger = {
             devoured: 1 // 1=true in mysql
@@ -34,25 +31,23 @@ $(function() {
             burger_name: $("#new-burger").val().trim(),
         };
 
-        // Send the POST request.
-        $.post("/api/burgers", newBurger)
-            .then(function() {
-                var burgerDiv = $("<div>");
-                var burgerId = $(this).data("id");
-                burgerDiv.attr(burgerId);
-                $().append(burgerDiv);
-                console.log("new burger added");
+        $.ajax("/api/burgers", {
+            type: "POST",
+            data: newBurger
+        }).then(
+            function() {
                 location.reload();
-            });
-        
-        // $.ajax({
-        //     method: "POST",
-        //     url: "/api/burgers",
-        //     data: newBurger
-        // }).then(function() {
-        //     console.log("A new burger has been added to the menu!");
-        //     // Reload the page to get the updated list
-        //     location.reload();
-        // });
+            })
+        // Send the POST request.
+        // $.post("/api/burgers", newBurger)
+        //     .then(function() {
+        //         var burgerDiv = $("<div>");
+        //         // var burgerId = $(this).data("id");
+        //         // burgerDiv.attr(burgerId);
+        //         burgerDiv.text("kayla burger")
+        //         $(".available").append(burgerDiv);
+        //         console.log("new burger added");
+        //         location.reload();
+        //     });
     });
 });

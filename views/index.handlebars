@@ -2,22 +2,22 @@
     <h3>Hungry? Try one of these tasty burgers.</h3>
     <ul>
         {{#each burgers}}
-        {{#unless devoured}}
-            <button type="submit" class="burger-title" id="devour-button" data-id={{id}}>{{burger_name}}</button>
-            {{!-- <li id="burger-title">{{burger_name}}</li>
-            <button type="submit" id="devour-button" data-id={{id}}>Eat-Da-Burger!</button> --}}
-        {{/unless}}
+            {{#unless devoured}}
+                <button type="submit" class="burger-title" id="devour-button" data-id={{id}}>{{burger_name}}</button>
+            {{/unless}}
         {{/each}}
     </ul>
 </div>
-
+<br>
+<hr>
+<br>
 <div class="eaten">
     <h3>These burgers are currently unavailable, sorry.</h3>
     <ul>
         {{#each burgers}}
-        {{#if devoured}}
-            <li id="no-burger-title">{{burger_name}}</li>
-        {{/if}}
+            {{#if devoured}}
+                <button type="submit" class="burger-title" id="no-burger-title" data-id={{id}}>{{burger_name}}</button>
+            {{/if}}
         {{/each}}
     </ul>
 </div>

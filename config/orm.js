@@ -8,7 +8,6 @@ var orm = {
     // selectAll function
     selectAll: function(callback) {
         var queryString = "SELECT * FROM burgers";
-        console.log(queryString)
         connection.query(queryString, function(err, result) {
             if (err) {
                 throw err;
@@ -18,13 +17,14 @@ var orm = {
     },
     
     // insertOne function
-    insertOne: function(table, burger_name, devoured) {
-        var queryString = "INSERT INTO ?? (burger_name, devoured) VALUES (??, ??)"; 
+    insertOne: function(table, burger_name, devoured, callback) {
+        var queryString = "INSERT INTO ?? (??) VALUES (?)"; 
+        // var queryString = "INSERT INTO ?? (burger_name, devoured) VALUES (??, ??)"; 
         connection.query(queryString, [table, burger_name, devoured], function(err, result) {
             if (err) {
                 throw err;
             }
-            console.log(result)
+            callback(result)
             res.redirect("/")
         });
     },
@@ -36,7 +36,7 @@ var orm = {
             if (err) {
                 throw err;
             }
-            console.log(rresult.affectedRows + " record(s) updated")
+            console.log(result.affectedRows + " record(s) updated")
         });
     },
 };
