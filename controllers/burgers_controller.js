@@ -1,10 +1,8 @@
 // requirements/dependencies
 var express = require("express");
-
-var burger = require("../models/burger.js");
-
-// setup router 
+var burger = require("../models/burger.js"); 
 var router = express.Router();
+
 
 // GET method
 router.get("/", function(req, res) {
@@ -12,29 +10,20 @@ router.get("/", function(req, res) {
         var burgerData = {
             burgers: data
         };
-        res.render("index", {burgers: data});
+        res.render("index", burgerData);
     });
 });
-  
+ 
+
 // POST method
-router.post("/api/burgers", function(req, res) {
-    burger.insertOne("burger_name", req.body.burger_name, function(result) {
+router.post("/", function(req, res) {                
+console.log(req.body)
+    burger.insertOne([req.body.burger_name, false], function(result) {
         // Send back the ID of the new burger
-        res.json({ id: result.insertId });
+        res.redirect("/");
     });
 });
 
-// // POST method
-// router.post("/api/burgers", function(req, res) {
-//     burger.insertOne([
-//         "burger_name", "devoured"
-//     ], [
-//         req.body.burger_name, req.body.devoured
-//     ], function(result) {
-//         // Send back the ID of the new burger
-//         res.json({ id: result.insertId });
-//     });
-// });
  
 // PUT method
 router.put("/api/burgers/:id", function(req, res) {
@@ -57,4 +46,4 @@ router.put("/api/burgers/:id", function(req, res) {
 
 
 // export the router
-module.exports = router;
+module.exports = router

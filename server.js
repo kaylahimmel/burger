@@ -9,15 +9,15 @@ var routes = require("./controllers/burgers_controller.js")
 var port = process.env.port || 3000;
 var app = express();
 
+// parse the app body code into JSON object
+app.use(express.urlencoded({ extended: true })); 
+app.use(express.json());
+
 // set the app to use the burgers_controller.js file for the GET/POST/PUT routes
 app.use(routes);
 
 // set the app to use the files in the public folder as basis of app
 app.use(express.static("public"));
-
-// parse the app body code into JSON object
-app.use(express.urlencoded({ extended: true })); 
-app.use(express.json());
 
 // set engine as handlebars
 app.engine("handlebars", expHbs({defaultLayout: "main"}));

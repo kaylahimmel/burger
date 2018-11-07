@@ -12,15 +12,15 @@ var burger = {
     },
 
     // insertOne function
-    insertOne: function(columns, values, cb) {
-      orm.insertOne("burgers", columns, values, function(res) {
+    insertOne: function(values, cb) {
+      orm.insertOne(values, function(res) {
         cb(res);
       });
     },
     
     // updateOne function
     updateOne: function(objColVals, updateID, cb) {
-      orm.updateOne("burgers", objColVals, updateID, function(res) {
+      orm.updateOne(objColVals, updateID, function(res) {
         cb(res);
       });
     }
